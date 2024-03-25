@@ -41,6 +41,20 @@ no_geo.then(function(data) {
         .attr('transform', `translate(${margin.left}, 0)`)
         .call(d3.axisLeft(yScale));
 
+    // Add labels
+    svg.append('text')
+        .attr('x', width / 2)
+        .attr('y', height - 10)
+        .attr('text-anchor', 'middle')
+        .text('IMDB Score');
+
+    svg.append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('x', -height / 2)
+        .attr('y', 50)
+        .attr('text-anchor', 'middle')
+        .text('IMDB Votes');
+
     // Create the color scales
     let colorScaleScore = d3.scaleSequential(d3.interpolateViridis)
         .domain([0, d3.max(data, d => d.imdb_score)]);
