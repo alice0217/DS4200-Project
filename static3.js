@@ -44,10 +44,8 @@ no_geo.then(function(data) {
     // Create the color scales
     let colorScaleScore = d3.scaleSequential(d3.interpolateViridis)
         .domain([0, d3.max(data, d => d.imdb_score)]);
-
-    let colorScaleVotes = d3.scaleSequential(d3.interpolateViridis)
-        .domain([0, d3.max(data, d => d.imdb_votes)]);
     
+    // Draw the circles
     svg.selectAll(".circle-score")
         .data(data)
         .enter().append("circle")
