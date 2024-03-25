@@ -1,5 +1,5 @@
 //Define data
-const netflix = d3.csv("no_geometry_data.csv");
+const netflix = d3.csv("no_geometry.csv");
 
 netflix.then(function (data) {
   let map = new Map();
