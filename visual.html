@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Static Scatterplot</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Altair Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+
+<body>
+  <h1>
+    Static Visualization
+  </h1>
+  <h3>Stacked Bar Plot</h3>
+  <h3>Choropleth</h3>
+  <h3>Scatter Plot</h3>
+  <svg id = 'scatterplot'></svg>
+  <h1>
+    Interactive Visualization
+  </h1>
+  <h3>Line + Bar</h3>
+  <div id = 'altair_release'></div>
+  <h3>Box Plot</h3>
+  <div id = 'altair_boxplot'></div>
+
+  <div id="tooltip" 
+  style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 5px; pointer-events: none;"></div>
+  <script src='https://d3js.org/d3.v7.min.js'></script>
+  <script src='index.js'></script>
+
+  <script> 
+    fetch('release.json')
+            .then(response => response.json())
+            .then(spec => vegaEmbed('#altair_release', spec))
+            .catch(error => console.error(error));
+  </script>
+  <script> 
+    fetch('boxplot.json')
+            .then(response => response.json())
+            .then(spec => vegaEmbed('#altair_boxplot', spec))
+            .catch(error => console.error(error));
+  </script>
+
+</body>
+
+</html>
