@@ -2,8 +2,8 @@ const no_geo = d3.csv("no_geometry.csv");
 
 no_geo.then(function(data) {
     // Define the dimensions for the chart
-    let width = 800;
-    let height = 800;
+    let width = window.innerWidth - 60;
+    let height = window.innerHeight;
 
     // Define the margins for the chart
     let margin = { 
@@ -13,14 +13,10 @@ no_geo.then(function(data) {
         left: 130 
     };
 
-    // Specify the desired tick values for the y-axis
-    let tickValues = [0, 200000, 400000, 600000, 800000];
-
     // Create the SVG container 
     let svg = d3.select("#scatterplot")
         .attr('width', width)
-        .attr('height', height)
-        .style('background', '#e9f7f2');
+        .attr('height', height);
 
     // Create the scales
     let xScale = d3.scaleLinear()
@@ -44,8 +40,9 @@ no_geo.then(function(data) {
     // Add labels
     svg.append('text')
         .attr('x', width / 2)
-        .attr('y', height - 10)
+        .attr('y', height - 5)
         .attr('text-anchor', 'middle')
+        .style('font-weight', 'bold')
         .text('IMDB Score');
 
     svg.append('text')
@@ -53,6 +50,7 @@ no_geo.then(function(data) {
         .attr('x', -height / 2)
         .attr('y', 50)
         .attr('text-anchor', 'middle')
+        .style('font-weight', 'bold')
         .text('IMDB Votes');
 
     // Create the color scales
@@ -82,6 +80,5 @@ no_geo.then(function(data) {
             d3.select("#tooltip")
                 .style("display", "none");
         });
-    
 
 })
