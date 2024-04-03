@@ -42,6 +42,8 @@
         so on.
     </p>
 
+  <h1>Overall</h1>
+
   <h1>
     Static Visualization
   </h1>
@@ -50,6 +52,15 @@
   <h3>Scatter Plot</h3>
   <svg id = 'scatterplot'></svg>
   <h3>Stacked Bar Plot</h3>
+  <div style="display: flex; justify-content: space-between;">
+    <h3>All Countries TV Show & Movie Split Percentage Stacked Bar Chart</h3>
+    <div style="display: flex;">
+        <h4 style="color: #c83c44">Shows</h4>
+        <h4 style="margin-left: 10px;">|</h4>
+        <h4 style="color: #504c4c; margin-left: 10px;">Movies</h4>
+    </div>
+  </div>
+  <svg id = "barplot"></svg>
   <h1>
     Interactive Visualization
   </h1>
@@ -58,12 +69,12 @@
   <div id="tooltip" 
   style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 5px; pointer-events: none;"></div>
   <h3>Network graph</h3>
-  <h1>
-    Overall
-  </h1>
+  <iframe src="country_network.html" style="width: 100%; height: 800px;"></iframe>
   <h3>Choropleth</h3>
+
   <script src='https://d3js.org/d3.v7.min.js'></script>
-  <script src='index.js'></script>
+  <script src='scatterplot.js'></script>
+  <script src='barplot.js'></script>
 
   <script> 
     fetch('release.json')
