@@ -2,8 +2,8 @@ const no_geo = d3.csv("no_geometry.csv");
 
 no_geo.then(function(data) {
     // Define the dimensions for the chart
-    let width = window.innerWidth - 60;
-    let height = window.innerHeight;
+    let width = window.innerWidth - 160;
+    let height = window.innerHeight - 100;
 
     // Define the margins for the chart
     let margin = { 
@@ -54,8 +54,8 @@ no_geo.then(function(data) {
         .text('IMDB Votes');
 
     // Create the color scales
-    let colorScaleScore = d3.scaleSequential(d3.interpolateViridis)
-        .domain([0, d3.max(data, d => d.imdb_score)]);
+    //let colorScaleScore = d3.scaleSequential(d3.interpolateViridis)
+        //.domain([0, d3.max(data, d => d.imdb_score)]);
     
     // Draw the circles
     svg.selectAll(".circle-score")
@@ -65,20 +65,7 @@ no_geo.then(function(data) {
         .attr("cx", d => xScale(d.imdb_score))
         .attr("cy", d => yScale(d.imdb_votes))
         .attr("r", 5)
-        .attr("fill", d => colorScaleScore(d.imdb_score))
+        .attr("fill", "#c83c44")
         .attr("opacity", 0.7)
-        .on("mouseover", function(event, d) {
-            // Show the tooltip
-            d3.select("#tooltip")
-                .style("display", "block")
-                .html("IMDB Score: " + d.imdb_score + "<br/>IMDB Votes: " + d.imdb_votes)
-                .style("left", (event.pageX + 10) + "px")
-                .style("top", (event.pageY - 10) + "px");
-        })
-        .on("mouseout", function() {
-            // Hide the tooltip
-            d3.select("#tooltip")
-                .style("display", "none");
-        });
 
 })
