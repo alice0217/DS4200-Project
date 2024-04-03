@@ -13,23 +13,55 @@
 </head>
 
 <body>
+  <h1>Netflix content analysis</h1>
+
+    <h3>Overall Introduction</h3>
+
+    <p>
+        In the ever-evolving landscape of entertainment, streaming
+        platforms have become the go-to destination for a diverse
+        range of content. Among these, Netflix is a popular platform
+        that provides a wide collection of TV series and movies to
+        suit the diverse tastes of its global audiences. In this 
+        project, we want to analyze a collection of TV series and
+        movies provided by a Netflix dataset, aiming to uncover the
+        connection and impact of production origins and their 
+        released Netflix TV shows and movies.
+    </p>
+
+    <p>
+        More specifically,
+        for every country in the dataset, we would like to find out
+        its movies & TV show split, the trend in the number of
+        released content each year, the average IMDB score of each
+        genre, and so on. Through these data visualizations, we can
+        compare between different countries. Hence, we can find the
+        answer to the question of how TV shows and movies on Netflix
+        produced by different countries differ in terms of attributes
+        such as their show type, genres, IMDB score, IMDB votes, and
+        so on.
+    </p>
+
   <h1>
     Static Visualization
   </h1>
-  <h3>Stacked Bar Plot</h3>
-  <h3>Choropleth</h3>
+  <h3>Box Plot</h3>
+  <img src="boxplot.svg" alt="Your SVG Image", id="img_boxplot", width="700px", height="auto">
   <h3>Scatter Plot</h3>
   <svg id = 'scatterplot'></svg>
+  <h3>Stacked Bar Plot</h3>
   <h1>
     Interactive Visualization
   </h1>
   <h3>Line + Bar</h3>
   <div id = 'altair_release'></div>
-  <h3>Box Plot</h3>
-  <div id = 'altair_boxplot'></div>
-
   <div id="tooltip" 
   style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 5px; pointer-events: none;"></div>
+  <h3>Network graph</h3>
+  <h1>
+    Overall
+  </h1>
+  <h3>Choropleth</h3>
   <script src='https://d3js.org/d3.v7.min.js'></script>
   <script src='index.js'></script>
 
@@ -37,12 +69,6 @@
     fetch('release.json')
             .then(response => response.json())
             .then(spec => vegaEmbed('#altair_release', spec))
-            .catch(error => console.error(error));
-  </script>
-  <script> 
-    fetch('boxplot.json')
-            .then(response => response.json())
-            .then(spec => vegaEmbed('#altair_boxplot', spec))
             .catch(error => console.error(error));
   </script>
 
