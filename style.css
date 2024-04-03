@@ -1,0 +1,86 @@
+body {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 20px 20px;
+    border: 3px solid black;
+  }
+
+h1, h3 {
+    margin: 0;
+    padding: 20px 0;
+    color: black;
+    text-align: center;
+}
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.tg td {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg th {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg .tg-0lax {
+    text-align: left;
+    vertical-align: top;
+}
+
+.center {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.img_container {
+    width: 1000px; /* Set the width of the container */
+    height: 750px; /* Set the height of the container */
+    margin: 0 auto;
+    border: 1px solid #000000; /* Optional: Add border for visualization */
+    border-radius: 10px;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden;
+}
+
+
+.boxplotimg {
+    height: 110%;
+    display: block; /* Make sure image doesn't have any extra spaces */
+    margin-top: 40px; 
+    margin-bottom: 40px;
+}
+
+.stacked_container {
+    width: 1200px; /* Set the width of the container */
+    height: 750px; /* Set the height of the container */
+    margin: 0 auto;
+    border: 1px solid #000000; /* Optional: Add border for visualization */
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center; /* Center vertically */
+    overflow-y: auto; /* Allow vertical overflow only */
+    overflow-x: hidden;
+    position: relative;
+}

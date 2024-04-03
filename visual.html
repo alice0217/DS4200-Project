@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link href="style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -42,25 +43,97 @@
         so on.
     </p>
 
+    <h3>Introduction to the data</h3>
+
+    <p>
+      The data we gathered comes from one source on Kaggle: Netflix
+      TV Shows and Movies which has two files titles.csv and credits.csv,
+      but we will only use titles.csv. It has 5850 rows and 15 features.
+      This data set was created to list all movies and shows available on
+      Netflix streaming, and analyze the data to find interesting facts. 
+      As of the recentness of data, the data was acquired in July 2022
+      containing data available in the US and it wass lastly updated a year ago.
+      Using the raw data, we have engineered some additional features to easily
+      represent them using visualization libraries.We also added natural 
+      earth country data and merged with our existing dataframe. The 
+      information about the features that were used in this visualization
+      are listed in the following table:
+    </p>
+
+    <div class="center">
+      <table class="tg">
+          <thead>
+            <tr>
+              <th class="tg-0lax">Variable Name</th>
+              <th class="tg-0lax">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-0lax">Country</td>
+              <td class="tg-0lax">Country name</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">geometry</td>
+              <td class="tg-0lax">Geometry of country for drawing of map</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">type</td>
+              <td class="tg-0lax">Type of content</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">release_year</td>
+              <td class="tg-0lax">Release year of content</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">runtime</td>
+              <td class="tg-0lax">Runtime of content</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">genres</td>
+              <td class="tg-0lax">Geners of content (list)</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">production_countries</td>
+              <td class="tg-0lax">Production countries that produced content (list)</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">imdb_votes</td>
+              <td class="tg-0lax">Number of IMDB votes for content</td>
+            </tr>
+            <tr>
+              <td class="tg-0lax">imdb_score</td>
+              <td class="tg-0lax">IMDB score of content</td>
+            </tr>
+          </tbody>
+          </table>
+      </div>
+
   <h1>Overall</h1>
 
   <h1>
     Static Visualization
   </h1>
   <h3>Box Plot</h3>
-  <img src="boxplot.svg" alt="Your SVG Image", id="img_boxplot", width="700px", height="auto">
+  <div class="img_container">
+    <img src="boxplot.svg" alt="Your SVG Image" id="img_boxplot" class="boxplotimg">
+  </div>
   <h3>Scatter Plot</h3>
   <svg id = 'scatterplot'></svg>
   <h3>Stacked Bar Plot</h3>
-  <div style="display: flex; justify-content: space-between;">
-    <h3>All Countries TV Show & Movie Split Percentage Stacked Bar Chart</h3>
-    <div style="display: flex;">
-        <h4 style="color: #c83c44">Shows</h4>
-        <h4 style="margin-left: 10px;">|</h4>
-        <h4 style="color: #504c4c; margin-left: 10px;">Movies</h4>
+  <div class="stacked_container">
+    <div style="display: flex; justify-content: space-between;">
+      <div>
+        <h3>All Countries TV Show & Movie Split Percentage Stacked Bar Chart</h3>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+          <h4 style="color: #c83c44">Shows</h4>
+          <h4 style="margin-left: 10px;">|</h4>
+          <h4 style="color: #504c4c; margin-left: 10px;">Movies</h4>
+      </div>
     </div>
+    <svg id = "barplot" style="position: absolute; left: -25px;"></svg>
   </div>
-  <svg id = "barplot"></svg>
   <h1>
     Interactive Visualization
   </h1>
@@ -70,7 +143,6 @@
   style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 5px; pointer-events: none;"></div>
   <h3>Network graph</h3>
   <iframe src="country_network.html" style="width: 100%; height: 800px;"></iframe>
-  <h3>Choropleth</h3>
 
   <script src='https://d3js.org/d3.v7.min.js'></script>
   <script src='scatterplot.js'></script>
