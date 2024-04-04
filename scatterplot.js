@@ -21,7 +21,7 @@ no_geo.then(function(data) {
     // Create the scales
     let xScale = d3.scaleLinear()
         .domain([0, d3.max(data, d => d.imdb_score)])
-        .range([margin.left, width - margin.right]);
+        .range([margin.left, width - margin.right - 100 ]);
 
     let yScale = d3.scaleLinear()
         .domain([0, 2500000])  // Extend the range to include up to 2,000,000
