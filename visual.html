@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en' style="background-color: #c83c44; padding: 3rem; font-family: 'Montserrat', sans-serif;">
 
 <head>
   <meta charset='UTF-8'>
-  <title>Static Scatterplot</title>
+  <title>DS4200 Group 15 Final Project</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Altair Chart</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src='https://d3js.org/d3.v7.min.js'></script>
+  <script src='scatterplot.js'></script>
+  <script src='barplot.js'></script>
+  <script> 
+    fetch('release.json')
+            .then(response => response.json())
+            .then(spec => vegaEmbed('#altair_release', spec))
+            .catch(error => console.error(error));
+  </script>
   <link href="style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 </head>
 
-<body>
-  <h1>Netflix content analysis</h1>
-
-    <h3>Overall Introduction</h3>
-
+<body style="display: flex; flex-direction: column; background-color: white;">
+  <h1 style="color: #c83c44">Data Visualization: How are Countries Different in Netflix Movies and Shows Productions?</h1>
+    <h2>Overall Introduction</h2>
     <p>
         In the ever-evolving landscape of entertainment, streaming
         platforms have become the go-to destination for a diverse
@@ -29,7 +36,6 @@
         connection and impact of production origins and their 
         released Netflix TV shows and movies.
     </p>
-
     <p>
         More specifically,
         for every country in the dataset, we would like to find out
@@ -42,9 +48,7 @@
         such as their show type, genres, IMDB score, IMDB votes, and
         so on.
     </p>
-
-    <h3>Introduction to the data</h3>
-
+    <h2>Introduction to the data</h2>
     <p>
       The data we gathered comes from one source on Kaggle: Netflix
       TV Shows and Movies which has two files titles.csv and credits.csv,
@@ -60,100 +64,108 @@
       are listed in the following table:
     </p>
 
-    <div class="center">
+    <div class="center" style="margin-bottom: 2rem;">
       <table class="tg">
           <thead>
-            <tr>
+            <tr style="background-color: lightgray;">
               <th class="tg-0lax">Variable Name</th>
               <th class="tg-0lax">Details</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="tg-0lax">Country</td>
+              <td class="tg-0lax" style="background-color: lightgray;">Country</td>
               <td class="tg-0lax">Country name</td>
             </tr>
             <tr>
-              <td class="tg-0lax">geometry</td>
+              <td class="tg-0lax" style="background-color: lightgray;">geometry</td>
               <td class="tg-0lax">Geometry of country for drawing of map</td>
             </tr>
             <tr>
-              <td class="tg-0lax">type</td>
+              <td class="tg-0lax" style="background-color: lightgray;">type</td>
               <td class="tg-0lax">Type of content</td>
             </tr>
             <tr>
-              <td class="tg-0lax">release_year</td>
+              <td class="tg-0lax" style="background-color: lightgray;">release_year</td>
               <td class="tg-0lax">Release year of content</td>
             </tr>
             <tr>
-              <td class="tg-0lax">runtime</td>
+              <td class="tg-0lax" style="background-color: lightgray;">runtime</td>
               <td class="tg-0lax">Runtime of content</td>
             </tr>
             <tr>
-              <td class="tg-0lax">genres</td>
+              <td class="tg-0lax" style="background-color: lightgray;">genres</td>
               <td class="tg-0lax">Geners of content (list)</td>
             </tr>
             <tr>
-              <td class="tg-0lax">production_countries</td>
+              <td class="tg-0lax" style="background-color: lightgray;">production_countries</td>
               <td class="tg-0lax">Production countries that produced content (list)</td>
             </tr>
             <tr>
-              <td class="tg-0lax">imdb_votes</td>
+              <td class="tg-0lax" style="background-color: lightgray;">imdb_votes</td>
               <td class="tg-0lax">Number of IMDB votes for content</td>
             </tr>
             <tr>
-              <td class="tg-0lax">imdb_score</td>
+              <td class="tg-0lax" style="background-color: lightgray;">imdb_score</td>
               <td class="tg-0lax">IMDB score of content</td>
             </tr>
           </tbody>
           </table>
-      </div>
+    </div>
 
-  <h1>Overall</h1>
-  <iframe src="out.html" width="800" height="600"></iframe>
-  <h1>
+  <h1 style="border-top: 2px solid #c83c44; color: #c83c44">Overall</h1>
+  <iframe src="out.html" width="800" height="600" frameBorder="0" class="center"></iframe>
+  <p>Description here!</p>
+
+  <h1 style="border-top: 2px solid #c83c44; color: #c83c44">
     Static Visualization
   </h1>
-  <h3>Box Plot</h3>
-  <div class="img_container">
-    <img src="boxplot.svg" alt="Your SVG Image" id="img_boxplot" class="boxplotimg">
+  <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: top;">
+    <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 50%">
+      <h2>Box Plot</h2>
+      <img src="boxplot.svg" style="width: 100%; height: 500px;">
+      <p>Description here!</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 50%">
+      <h2>Scatter Plot</h2>
+      <img src="scatterplot.png" style="width: 90%">
+      <p>Description here!</p>
+    </div>
   </div>
-  <h3>Scatter Plot</h3>
-  <svg id = 'scatterplot'></svg>
-  <h3>Stacked Bar Plot</h3>
-  <div class="stacked_container">
+
+  <div style="margin-bottom: 2rem;">
     <div style="display: flex; justify-content: space-between;">
       <div>
-        <h3>All Countries TV Show & Movie Split Percentage Stacked Bar Chart</h3>
+        <h2>All Countries TV Show & Movie Split Percentage Stacked Bar Chart</h2>
       </div>
       <div style="display: flex; justify-content: space-between;">
-          <h4 style="color: #c83c44">Shows</h4>
-          <h4 style="margin-left: 10px;">|</h4>
-          <h4 style="color: #504c4c; margin-left: 10px;">Movies</h4>
+        <h4 style="color: #c83c44">Shows</h4>
+        <h4 style="margin-left: 10px;">|</h4>
+        <h4 style="color: #504c4c; margin-left: 10px;">Movies</h4>
       </div>
     </div>
-    <svg id = "barplot" style="position: absolute; left: -25px;"></svg>
+    <div style="height: 500px; overflow: scroll">
+      <svg id = "barplot"></svg>
+    </div>
+    <p>Description here!</p>
   </div>
-  <h1>
+
+  <h1 style="border-top: 2px solid #c83c44; color: #c83c44">
     Interactive Visualization
   </h1>
-  <h3>Line + Bar</h3>
-  <div id = 'altair_release'></div>
-  <div id="tooltip" 
-  style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 5px; pointer-events: none;"></div>
-  <h3>Network graph</h3>
-  <iframe src="country_network.html" style="width: 100%; height: 800px;"></iframe>
-
-  <script src='https://d3js.org/d3.v7.min.js'></script>
-  <script src='scatterplot.js'></script>
-  <script src='barplot.js'></script>
-
-  <script> 
-    fetch('release.json')
-            .then(response => response.json())
-            .then(spec => vegaEmbed('#altair_release', spec))
-            .catch(error => console.error(error));
-  </script>
+  
+  <h2>Line + Bar</h2>
+  <div class="center" style="width: 1000px; height: 700px; overflow: scroll;">
+    <div id = 'altair_release'></div>
+    <div id="tooltip" 
+    style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 5px; pointer-events: none;"></div>
+  </div>
+  <p>Description here!</p>
+  
+  <h2>Network graph</h2>
+  <iframe src="country_network.html" frameBorder="0" style="width: 100%; height: 800px;"></iframe>
+  <p>Description here!</p>
 
 </body>
 

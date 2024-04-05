@@ -2,7 +2,7 @@ const no_geo = d3.csv("no_geometry.csv");
 
 no_geo.then(function(data) {
     // Define the dimensions for the chart
-    let width = window.innerWidth - 160;
+    let width = 600;
     let height = window.innerHeight - 100;
 
     // Define the margins for the chart
