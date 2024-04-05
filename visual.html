@@ -1,171 +1,299 @@
 <!DOCTYPE html>
-<html lang='en' style="background-color: #c83c44; padding: 3rem; font-family: 'Montserrat', sans-serif;">
+<html
+  lang="en"
+  style="
+    background-color: #c83c44;
+    padding: 3rem;
+    font-family: 'Montserrat', sans-serif;
+  "
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>DS4200 Group 15 Final Project</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="barplot.js"></script>
+    <script>
+      fetch("release.json")
+        .then((response) => response.json())
+        .then((spec) => vegaEmbed("#altair_release", spec))
+        .catch((error) => console.error(error));
+    </script>
+    <link href="style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+  </head>
 
-<head>
-  <meta charset='UTF-8'>
-  <title>DS4200 Group 15 Final Project</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-  <script src='https://d3js.org/d3.v7.min.js'></script>
-  <script src='barplot.js'></script>
-  <script> 
-    fetch('release.json')
-            .then(response => response.json())
-            .then(spec => vegaEmbed('#altair_release', spec))
-            .catch(error => console.error(error));
-  </script>
-  <link href="style.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-</head>
-
-<body style="display: flex; flex-direction: column; background-color: white;">
-  <h1 style="color: #c83c44">Data Visualization: How are Countries Different in Netflix Movies and Shows Productions?</h1>
-    <h2 style="width: 100%;">Overall Introduction</h2>
+  <body style="display: flex; flex-direction: column; background-color: white">
+    <h1 style="color: #c83c44">
+      Data Visualization: How are Countries Different in Netflix Movies and
+      Shows Productions?
+    </h1>
+    <h3>Group 15: Joseph Trisnandi, Khanh Nguyen, I Man Liu</h3>
+    <h2 style="width: 100%">Overall Introduction</h2>
     <p>
-        In the ever-evolving landscape of entertainment, streaming
-        platforms have become the go-to destination for a diverse
-        range of content. Among these, Netflix is a popular platform
-        that provides a wide collection of TV series and movies to
-        suit the diverse tastes of its global audiences. In this 
-        project, we want to analyze a collection of TV series and
-        movies provided by a Netflix dataset, aiming to uncover the
-        connection and impact of production origins and their 
-        released Netflix TV shows and movies.
+      In the ever-evolving landscape of entertainment, streaming platforms have
+      become the go-to destination for a diverse range of content. Among these,
+      Netflix is a popular platform that provides a wide collection of TV series
+      and movies to suit the diverse tastes of its global audiences. In this
+      project, we want to analyze a collection of TV series and movies provided
+      by a Netflix dataset, aiming to uncover the connection and impact of
+      production origins and their released Netflix TV shows and movies.
     </p>
     <p>
-        More specifically,
-        for every country in the dataset, we would like to find out
-        its movies & TV show split, the trend in the number of
-        released content each year, the average IMDB score of each
-        genre, and so on. Through these data visualizations, we can
-        compare between different countries. Hence, we can find the
-        answer to the question of how TV shows and movies on Netflix
-        produced by different countries differ in terms of attributes
-        such as their show type, genres, IMDB score, IMDB votes, and
-        so on.
+      More specifically, for every country in the dataset, we would like to find
+      out its movies & TV show split, the trend in the number of released
+      content each year, the average IMDB score of each genre, and so on.
+      Through these data visualizations, we can compare between different
+      countries. Hence, we can find the answer to the question of how TV shows
+      and movies on Netflix produced by different countries differ in terms of
+      attributes such as their show type, genres, IMDB score, IMDB votes, and so
+      on.
     </p>
-    <h2 style="width: 100%;">Introduction to the data</h2>
+    <h2 style="width: 100%">Introduction to the data</h2>
     <p>
-      The data we gathered comes from one source on Kaggle: Netflix
-      TV Shows and Movies which has two files titles.csv and credits.csv,
-      but we will only use titles.csv. It has 5850 rows and 15 features.
-      This data set was created to list all movies and shows available on
-      Netflix streaming, and analyze the data to find interesting facts. 
-      As of the recentness of data, the data was acquired in July 2022
-      containing data available in the US and it wass lastly updated a year ago.
-      Using the raw data, we have engineered some additional features to easily
-      represent them using visualization libraries.We also added natural 
-      earth country data and merged with our existing dataframe. The 
-      information about the features that were used in this visualization
-      are listed in the following table:
+      The data we gathered comes from one source on Kaggle: Netflix TV Shows and
+      Movies which has two files titles.csv and credits.csv, but we will only
+      use titles.csv. It has 5850 rows and 15 features. This data set was
+      created to list all movies and shows available on Netflix streaming, and
+      analyze the data to find interesting facts. As of the recentness of data,
+      the data was acquired in July 2022 containing data available in the US and
+      it wass lastly updated a year ago. Using the raw data, we have engineered
+      some additional features to easily represent them using visualization
+      libraries.We also added natural earth country data and merged with our
+      existing dataframe. The information about the features that were used in
+      this visualization are listed in the following table:
     </p>
 
-    <div class="center" style="margin-bottom: 2rem;">
+    <div class="center" style="margin-bottom: 2rem">
       <table class="tg">
-          <thead>
-            <tr style="background-color: lightgray;">
-              <th class="tg-0lax">Variable Name</th>
-              <th class="tg-0lax">Details</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">Country</td>
-              <td class="tg-0lax">Country name</td>
-            </tr>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">geometry</td>
-              <td class="tg-0lax">Geometry of country for drawing of map</td>
-            </tr>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">type</td>
-              <td class="tg-0lax">Type of content</td>
-            </tr>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">release_year</td>
-              <td class="tg-0lax">Release year of content</td>
-            </tr>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">runtime</td>
-              <td class="tg-0lax">Runtime of content</td>
-            </tr>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">genres</td>
-              <td class="tg-0lax">Geners of content (list)</td>
-            </tr>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">production_countries</td>
-              <td class="tg-0lax">Production countries that produced content (list)</td>
-            </tr>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">imdb_votes</td>
-              <td class="tg-0lax">Number of IMDB votes for content</td>
-            </tr>
-            <tr>
-              <td class="tg-0lax" style="background-color: lightgray;">imdb_score</td>
-              <td class="tg-0lax">IMDB score of content</td>
-            </tr>
-          </tbody>
-          </table>
+        <thead>
+          <tr style="background-color: lightgray">
+            <th class="tg-0lax">Variable Name</th>
+            <th class="tg-0lax">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">Country</td>
+            <td class="tg-0lax">Country name</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">
+              geometry
+            </td>
+            <td class="tg-0lax">Geometry of country for drawing of map</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">type</td>
+            <td class="tg-0lax">Type of content</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">
+              release_year
+            </td>
+            <td class="tg-0lax">Release year of content</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">runtime</td>
+            <td class="tg-0lax">Runtime of content</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">genres</td>
+            <td class="tg-0lax">Geners of content (list)</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">
+              production_countries
+            </td>
+            <td class="tg-0lax">
+              Production countries that produced content (list)
+            </td>
+          </tr>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">
+              imdb_votes
+            </td>
+            <td class="tg-0lax">Number of IMDB votes for content</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax" style="background-color: lightgray">
+              imdb_score
+            </td>
+            <td class="tg-0lax">IMDB score of content</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-  <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%;">Overall</h1>
-  <iframe src="out.html" width="800" height="600" frameBorder="0" class="center"></iframe>
-  <p>Description here!</p>
+    <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%">
+      Overall
+    </h1>
+    <iframe
+      src="out.html"
+      width="800"
+      height="600"
+      frameborder="0"
+      class="center"
+    ></iframe>
+    <p>Description here!</p>
 
-  <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%;">
-    Static Visualization
-  </h1>
-  <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: top;">
-    <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 50%">
-      <h2>Box Plot</h2>
-      <img src="boxplot.svg" style="width: 100%; height: 500px;">
-      <p>Description here!</p>
-    </div>
-
-    <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 50%">
-      <h2>Scatter Plot</h2>
-      <img src="scatterplot.png" style="width: 90%">
-      <p>Description here!</p>
-    </div>
-  </div>
-
-  <div style="margin-bottom: 2rem;">
-    <div style="display: flex; justify-content: space-between;">
-      <div>
-        <h2>All Countries TV Show & Movie Split Percentage Stacked Bar Chart</h2>
+    <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%">
+      Static Visualization
+    </h1>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: top;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 50%;
+        "
+      >
+        <h2>Box Plot</h2>
+        <img src="boxplot.svg" style="width: 100%; height: 500px" />
+        <p>Description here!</p>
       </div>
-      <div style="display: flex; justify-content: space-between;">
-        <h4 style="color: #c83c44">Shows</h4>
-        <h4 style="margin-left: 10px;">|</h4>
-        <h4 style="color: #504c4c; margin-left: 10px;">Movies</h4>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 50%;
+        "
+      >
+        <h2>Scatter Plot</h2>
+        <img src="scatterplot.png" style="width: 90%" />
+        <p>Description here!</p>
       </div>
     </div>
-    <div style="height: 500px; overflow: scroll">
-      <svg id = "barplot"></svg>
+
+    <div style="margin-bottom: 2rem">
+      <div style="display: flex; justify-content: space-between">
+        <div>
+          <h2>
+            Distribution of Shows and Movies on Netflix Across Various Countries
+          </h2>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+          <h4 style="color: #c83c44">Shows</h4>
+          <h4 style="margin-left: 10px">|</h4>
+          <h4 style="color: #504c4c; margin-left: 10px">Movies</h4>
+        </div>
+      </div>
+      <div style="height: 500px; overflow: scroll">
+        <svg id="barplot"></svg>
+      </div>
+      <p>
+        The stacked bar plot above illustrates the distribution of TV shows and
+        movies across various countries on Netflix, utilizing a color scheme
+        reminiscent of Netflix's branding to enhance clarity and user
+        interpretation. The red bars represent the proportion of TV shows, while
+        the black bars depict the proportion of movies. With a total of 109
+        bars, each corresponding to a distinct country, the plot serves as a
+        comprehensive overview of global content distribution on the platform.
+      </p>
+      <p>
+        Notably, the plot reveals intriguing insights into the content offerings
+        of different countries. Some countries, such as Ghana and Burkina Faso,
+        out of their total number of shows and movies, movies take up 100%.
+        Conversely, countries like Belarus and Croatia are the total opposite
+        with a 100% of shows and 0% movies. Moreover, a significant observation
+        emerges from the large number of black bars, signifying a greater number
+        of countries with exclusive movie offerings compared to those with only
+        TV shows on Netflix.
+      </p>
+      <p>
+        Delving deeper, notable disparities in content distribution are apparent
+        among prominent nations. For instance, while the United States
+        predominantly showcases movies, Japan and South Korea lean towards a
+        surplus of TV shows. These variations reflect unique cultural
+        preferences and production trends within each country's entertainment
+        industry.
+      </p>
+      <p>
+        In conclusion, the stacked bar plot illuminates the diverse landscape of
+        content distribution on Netflix, highlighting regional preferences and
+        industry dynamics, and underscoring the importance of countries to cater
+        to diverse audience preferences in the global market.
+      </p>
+    </div>
+
+    <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%">
+      Interactive Visualization
+    </h1>
+
+    <h2 style="width: 100%">Line + Bar</h2>
+    <div class="center" style="width: 1000px; height: 700px; overflow: scroll">
+      <div id="altair_release"></div>
+      <div
+        id="tooltip"
+        style="
+          display: none;
+          position: absolute;
+          background-color: white;
+          border: 1px solid black;
+          padding: 5px;
+          pointer-events: none;
+        "
+      ></div>
     </div>
     <p>Description here!</p>
-  </div>
 
-  <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%;">
-    Interactive Visualization
-  </h1>
-  
-  <h2 style="width: 100%;">Line + Bar</h2>
-  <div class="center" style="width: 1000px; height: 700px; overflow: scroll;">
-    <div id = 'altair_release'></div>
-    <div id="tooltip" 
-    style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 5px; pointer-events: none;"></div>
-  </div>
-  <p>Description here!</p>
-
-  <h2 style="width: 100%;">Network graph</h2>
-  <iframe src="country_network.html" frameBorder="0" style="width: 100%; height: 800px;"></iframe>
-  <p>Description here!</p>
-
-</body>
-
+    <h2 style="width: 100%">Countries Partnerships Network</h2>
+    <iframe
+      src="country_network.html"
+      frameborder="0"
+      style="width: 100%; height: 800px"
+    ></iframe>
+    <p>
+      The network visualized by the Folium library illustrates collaborations
+      between countries in producing movies and shows available on Netflix. Each
+      edge between two countries signifies a collaborative effort in creating
+      content. Notably, certain countries exhibit high degrees within the
+      network, indicating extensive collaborations with numerous other
+      countries. France, Great Britain, and the USA stand out prominently in
+      this regard, suggesting that the movies and shows produced by these
+      nations often involve partnerships with a diverse range of international
+      counterparts.
+    </p>
+    <p>
+      Of particular interest is the thickness of edges, which reflects the
+      frequency of collaborations between pairs of countries. The thicker the
+      edge, the more frequent the collaborations. For instance, the connection
+      between Great Britain and the USA appears notably thicker compared to
+      others, indicating a robust history of joint productions between these two
+      countries. Overall, the network appears dense, indicating a widespread
+      network of collaborations among countries in the film and television
+      industry. However, there are outliers, such as KN (Saint Kitts and Nevis)
+      and LK (Sri Lanka), with a low degree of one, suggesting limited
+      collaborative engagements with other countries in the database we used.
+    </p>
+    <p>
+      Analyzing this network provides valuable insights into the global dynamics
+      of content creation and collaboration in the entertainment industry. It
+      highlights the interconnectedness of countries in producing diverse and
+      culturally rich content for platforms like Netflix, while also
+      underscoring the varied levels of engagement among different nations.
+      Further analysis of specific collaborations and patterns within the
+      network could offer deeper insights into the dynamics of international
+      partnerships in filmmaking and television production.
+    </p>
+  </body>
 </html>
