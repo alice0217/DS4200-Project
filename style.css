@@ -68,6 +68,11 @@ h1 {
 
 form.vega-bindings {
     position: absolute;
-    right: 120px;
-    top: 450px;
+    padding: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: 2px solid #8C4448;
+    border-radius: 5px;
+    right: 135px;
+    top: 445px;
 }
