@@ -76,3 +76,7 @@ form.vega-bindings {
     right: 135px;
     top: 445px;
 }
+
+.legend {
+    display: flex;
+}
