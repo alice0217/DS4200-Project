@@ -133,8 +133,16 @@
     </div>
 
     <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%">
-      Overall
+      Overall Map
     </h1>
+    <p>
+      Following is an interactive visual representation for the whole world. 
+      By zooming in or hovering over the map, users can explore details about 
+      each continent and country. The 2 color layers indicate the average show runtime 
+      and average movie runtime of each country. When click on a country, additional 
+      information about other factors related to movies and shows produced in that country 
+      will be revealed. 
+    </p>
     <iframe
       src="map.html"
       width="90%"
@@ -142,7 +150,22 @@
       frameborder="0"
       class="center"
     ></iframe>
-    <p>Description here!</p>
+    <p>When analyzing the overall map, we observe distinct patterns that most of Europe, Asia, 
+      and parts of Africa have higher average shows and movies runtimes, with movies averaging 
+      between 97 to 114 minutes and shows between 37 to 60 minutes. On the other hand, 
+      most of North and South America tend to have lower average shows and movies runtimes, 
+      ranging from 20 to 97 minutes for movies and 3 to 37 minutes for shows. As you clicked 
+      on each of the country in the continent, you will explore more of Netflix Movies and 
+      Shows Productions information such as the latest movies release year, average imdb score, 
+      average tmdb popularity, etc. 
+    </p>
+    <p>
+      This visualization helps us understand the diversity in Netflix content production across 
+      different regions. It highlights regional preferences and trends in show and movie runtimes, 
+      providing insights into cultural and entertainment preferences worldwide. Users can gain a 
+      deeper understanding of how Netflix content varies globally, enriching their knowledge of 
+      international media landscapes. 
+    </p>
 
     <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%">
       Static Visualization
@@ -165,7 +188,7 @@
         "
       >
         <h2>Box Plot</h2>
-        <img src="boxplot.svg" style="width: 100%; height: 500px" />
+        <img src="boxplot.svg" style="height: 500px" />
         <p>
           This boxplot was created using the Seaborn library. The chart
           effectively visualizes the differences in production runtimes across
@@ -195,8 +218,22 @@
         "
       >
         <h2>Scatter Plot</h2>
-        <img src="scatterplot.png" style="width: 90%" />
-        <p>Description here!</p>
+        <img src="scatterplot.png" style="height: 450px; width: 95%;" />
+        <p>
+          The scatter plot presented shows a compelling distribution of IMDB scores 
+          against the number of IMDB votes for a collection of TV shows and movies. 
+          The X-axis is scaled from 0 to 10, representing the range of possible 
+          IMDB scores, while the Y-axis accounts for the volume of IMDB votes, 
+          extending into the millions. 
+        </p>
+        <p>
+          The density of points grows thinner at both extremities of the rating spectrum 
+          but shows a particular uptick in the number of votes for shows and movies 
+          with higher ratings, especially beyond the score of 6 to 8. This indicates a potential 
+          correlation where higher-rated shows and movies on Netflix also tend to be more 
+          popular or discussed among viewers. Moreover, the spread of votes across shows and movies 
+          hinting at the diverse tastes among Netflix's audience from different countries.
+        </p>
       </div>
     </div>
 
