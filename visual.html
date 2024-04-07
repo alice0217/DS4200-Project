@@ -43,32 +43,61 @@
       Netflix is a popular platform that provides a wide collection of TV series
       and movies to suit the diverse tastes of its global audiences. In this
       project, we want to analyze a collection of TV series and movies provided
-      by a Netflix dataset, aiming to uncover the connection and impact of
-      production origins and their released Netflix TV shows and movies.
+      by a Netflix dataset, aiming to uncover the connection between production
+      origins and their released Netflix TV shows and movies.
     </p>
     <p>
       More specifically, for every country in the dataset, we would like to find
       out its movies & TV show split, the trend in the number of released
-      content each year, the average IMDB score of each genre, and so on.
-      Through these data visualizations, we can compare between different
+      content each year, the correlation between IMDB votes and IMDB scores, and
+      so on. Through these data visualizations, we can compare between different
       countries. Hence, we can find the answer to the question of how TV shows
       and movies on Netflix produced by different countries differ in terms of
       attributes such as their show type, genres, IMDB score, IMDB votes, and so
       on.
     </p>
+    <h2 style="width: 100%">References</h2>
+    <ul style="width: 100%">
+      <li>
+        <a
+          href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3473148"
+          target="_blank"
+          >Netflix Bigdata Analytics - The Emergence of Data Driven
+          Recommendation by Srivatsa Maddodi, & Krishna Prasad, K. (2019)</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.researchgate.net/profile/Karthik-Vadloori/publication/354719521_Exploratory_and_Sentiment_Analysis_of_Netflix_Data/links/61499212a3df59440b9d7a8a/Exploratory-and-Sentiment-Analysis-of-Netflix-Data.pdf"
+          target="_blank"
+          >Exploratory and Sentiment Analysis of Netflix Data by Karthik
+          Vadloori and Shriya Madhavi Sanghishetty (2021)</a
+        >
+      </li>
+    </ul>
     <h2 style="width: 100%">Introduction to the data</h2>
     <p>
-      The data we gathered comes from one source on Kaggle: Netflix TV Shows and
-      Movies which has two files titles.csv and credits.csv, but we will only
+      The data we gathered comes from one source on Kaggle:
+      <a
+        href="https://www.kaggle.com/datasets/victorsoeiro/netflix-tv-shows-and-movies?select=titles.csv"
+        target="_blank"
+        >Netflix TV Shows and Movies</a
+      >. Movies which has two files titles.csv and credits.csv, but we will only
       use titles.csv. It has 5850 rows and 15 features. This data set was
       created to list all movies and shows available on Netflix streaming, and
       analyze the data to find interesting facts. As of the recentness of data,
       the data was acquired in July 2022 containing data available in the US and
-      it wass lastly updated a year ago. Using the raw data, we have engineered
+      it was lastly updated a year ago. Using the raw data, we have engineered
       some additional features to easily represent them using visualization
-      libraries.We also added natural earth country data and merged with our
-      existing dataframe. The information about the features that were used in
-      this visualization are listed in the following table:
+      libraries. We also added
+      <a
+        href="https://www.naturalearthdata.com/downloads/10m-cultural-vectors/"
+        target="_blank"
+        >Natural Earth Countries</a
+      >
+      data and merged with our existing dataframe. The information about the
+      features that were used in this visualization are listed in the following
+      table:
     </p>
 
     <div class="center" style="margin-bottom: 2rem">
@@ -136,6 +165,7 @@
       Overall Map
     </h1>
     <p>
+      <span style="color: #c83c44">Interaction Guide: </span>
       Following is an interactive visual representation for the whole world. By
       zooming in or hovering over the map, users can explore details about each
       continent and country. The 2 color layers indicate the average show
@@ -150,6 +180,14 @@
       frameborder="0"
       class="center"
     ></iframe>
+    <p>
+      To generate the overall data visualization, our group created a new
+      dataframe that generalizes all the movies and shows in the dataset. For
+      every country, we calculate the total number of shows, total number of
+      movies, average show runtime, average movie runtime, average imdb score,
+      average imdb votes and so on so that the readers can get some general
+      information about a specific country.
+    </p>
     <p>
       When analyzing the overall map, we observe distinct patterns that most of
       Europe, Asia, and parts of Africa have higher average shows and movies
@@ -307,6 +345,14 @@
     <h2 style="width: 100%">
       Content Genres and Release Year Line and Bar Charts
     </h2>
+    <p>
+      <span style="color: #c83c44">Interaction Guide: </span>
+      For this interactive visualization, you are able to select any one of the
+      top 3 countries using the dropdown box to observe the trends of the number
+      of releases of each country per year. You are also able to select between
+      blocks of time by clicking and dragging on the graph to observe the number
+      of each genre types released during that block of time.
+    </p>
     <div class="center" style="width: 1000px; height: 700px; overflow: scroll">
       <div id="altair_release"></div>
       <div
@@ -341,6 +387,15 @@
     </p>
 
     <h2 style="width: 100%">Countries Partnership Network</h2>
+    <p>
+      <span style="color: #c83c44">Interaction Guide: </span>
+      To explore the network further, you can zoom in or click on specific nodes
+      (points/dots) to see the names of countries. You can also investigate the
+      edges (lines), which depict the connections, engagements, and interactions
+      of that country with other countries. Clicking on an edge provides a
+      clearer view of the connection between two specific countries, with the
+      thickness indicating the frequency of interaction between them.
+    </p>
     <iframe
       src="country_network.html"
       frameborder="0"
@@ -381,6 +436,37 @@
     </p>
 
     <h1>Conclusion</h1>
-    <p></p>
+    <p>
+      Based on our static visualizations, we have noted that, on average, shows
+      tend to have longer runtimes than movies. Furthermore, our analysis
+      reveals that the United States receives the highest number of IMDB votes
+      compared to India and Korea, indicating a potentially larger audience
+      reach. Also, There are more movies than shows on Netflix in the data we
+      use. Some countries like the US has produced more movies than shows,
+      whereas countries like Korea has produced more shows than movies. We
+      assume that the type they produce depends on the interest of the main
+      audience. These insights shed light on the diverse preferences of global
+      audiences and how Netflix adapts its content offerings to cater to these
+      preferences on a country-by-country basis.
+    </p>
+    <p>
+      From our data visualizations, we conclude that the US, Korea, and India
+      are the top three origins of movies and shows available on Netflix. Using
+      the data of the top production countries, we found that popularity via the
+      number of IMDB votes led to higher IMDB scores. Outside of those top
+      countries, France and Great Britain had the most collaborative productions
+      around the globe. The three most common genres on Netflix are drama,
+      comedy, and thriller, with a sharp increase of content throughout from
+      2010s.
+    </p>
+    <p>
+      For our future work, we will keep monitoring and collecting more recent
+      data to have a more accurate understanding and visualizing of the shows
+      and movies produced across different countries.
+    </p>
+    <p style="color: #c83c44">
+      *Conclusions are made solely based on the Netflix dataset, meaning that we
+      can’t generalize for all movies and shows available outside Netflix.
+    </p>
   </body>
 </html>
