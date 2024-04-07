@@ -136,12 +136,12 @@
       Overall Map
     </h1>
     <p>
-      Following is an interactive visual representation for the whole world. 
-      By zooming in or hovering over the map, users can explore details about 
-      each continent and country. The 2 color layers indicate the average show runtime 
-      and average movie runtime of each country. When click on a country, additional 
-      information about other factors related to movies and shows produced in that country 
-      will be revealed. 
+      Following is an interactive visual representation for the whole world. By
+      zooming in or hovering over the map, users can explore details about each
+      continent and country. The 2 color layers indicate the average show
+      runtime and average movie runtime of each country. When click on a
+      country, additional information about other factors related to movies and
+      shows produced in that country will be revealed.
     </p>
     <iframe
       src="map.html"
@@ -150,92 +150,29 @@
       frameborder="0"
       class="center"
     ></iframe>
-    <p>When analyzing the overall map, we observe distinct patterns that most of Europe, Asia, 
-      and parts of Africa have higher average shows and movies runtimes, with movies averaging 
-      between 97 to 114 minutes and shows between 37 to 60 minutes. On the other hand, 
-      most of North and South America tend to have lower average shows and movies runtimes, 
-      ranging from 20 to 97 minutes for movies and 3 to 37 minutes for shows. As you clicked 
-      on each of the country in the continent, you will explore more of Netflix Movies and 
-      Shows Productions information such as the latest movies release year, average imdb score, 
-      average tmdb popularity, etc. 
+    <p>
+      When analyzing the overall map, we observe distinct patterns that most of
+      Europe, Asia, and parts of Africa have higher average shows and movies
+      runtimes, with movies averaging between 97 to 114 minutes and shows
+      between 37 to 60 minutes. On the other hand, most of North and South
+      America tend to have lower average shows and movies runtimes, ranging from
+      20 to 97 minutes for movies and 3 to 37 minutes for shows. As you clicked
+      on each of the country in the continent, you will explore more of Netflix
+      Movies and Shows Productions information such as the latest movies release
+      year, average imdb score, average tmdb popularity, etc.
     </p>
     <p>
-      This visualization helps us understand the diversity in Netflix content production across 
-      different regions. It highlights regional preferences and trends in show and movie runtimes, 
-      providing insights into cultural and entertainment preferences worldwide. Users can gain a 
-      deeper understanding of how Netflix content varies globally, enriching their knowledge of 
-      international media landscapes. 
+      This visualization helps us understand the diversity in Netflix content
+      production across different regions. It highlights regional preferences
+      and trends in show and movie runtimes, providing insights into cultural
+      and entertainment preferences worldwide. Users can gain a deeper
+      understanding of how Netflix content varies globally, enriching their
+      knowledge of international media landscapes.
     </p>
 
     <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%">
       Static Visualization
     </h1>
-    <div
-      style="
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: top;
-      "
-    >
-      <div
-        style="
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          width: 50%;
-        "
-      >
-        <h2>Box Plot</h2>
-        <img src="boxplot.svg" style="height: 500px" />
-        <p>
-          This boxplot was created using the Seaborn library. The chart
-          effectively visualizes the differences in production runtimes across
-          the content types and the three production countries represented. This
-          allows for easy comparison and insight of country tendencies in the
-          data.
-        </p>
-        <p>
-          A key observation is that Movie production generally have a higher
-          runtime compared to shows. Moreover, there is a broader distribution
-          of runtimes for movies than for shows, with Indian-produced movies
-          displaying the widest range, spanning from 60 to 200 minutes.
-          Additionally, Indian production companies also have the longest median
-          movie runtimes of around 135 minutes. On the other hand, the Korean
-          production companies have the longest show runtimes, with a median
-          around 60 minutes.
-        </p>
-      </div>
-
-      <div
-        style="
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-          width: 50%;
-        "
-      >
-        <h2>Scatter Plot</h2>
-        <img src="scatterplot.png" style="height: 450px; width: 95%;" />
-        <p>
-          The scatter plot presented shows a compelling distribution of IMDB scores 
-          against the number of IMDB votes for a collection of TV shows and movies. 
-          The X-axis is scaled from 0 to 10, representing the range of possible 
-          IMDB scores, while the Y-axis accounts for the volume of IMDB votes, 
-          extending into the millions. 
-        </p>
-        <p>
-          The density of points grows thinner at both extremities of the rating spectrum 
-          but shows a particular uptick in the number of votes for shows and movies 
-          with higher ratings, especially beyond the score of 6 to 8. This indicates a potential 
-          correlation where higher-rated/quality shows and movies on Netflix also tend to be more 
-          popular or discussed among viewers. Moreover, the spread of votes across shows and movies 
-          hinting at the diverse tastes among Netflix's audience from different countries.
-        </p>
-      </div>
-    </div>
 
     <div style="margin-bottom: 2rem">
       <div style="display: flex; justify-content: space-between">
@@ -288,11 +225,88 @@
       </p>
     </div>
 
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 2rem;
+        align-items: top;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 50%;
+        "
+      >
+        <h2>Runtimes of Content Types Box Plot</h2>
+        <img src="boxplot.svg" style="height: 500px" />
+        <p>
+          This side-by-side boxplot was created using the Seaborn library. The
+          chart effectively visualizes the differences in production runtimes
+          across the content types and the three production countries
+          represented. This allows for easy comparison and insight of country
+          tendencies in the data.
+        </p>
+        <p>
+          A key observation is that movie production generally has a higher
+          runtime compared to shows. Moreover, there is a broader distribution
+          of runtimes for movies than for shows, with Indian-produced movies
+          displaying the widest range, spanning from 60 to 200 minutes.
+          Additionally, Indian-produced movies also have the longest median
+          runtimes of around 135 minutes. On the other hand, the Korean-produced
+          shows have the longest runtimes, with a median around 60 minutes, with
+          a lower quartile of 50 minutes, longer than the upper quartile of US
+          and Indian show runtimes.
+        </p>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 50%;
+        "
+      >
+        <h2>IMDB Votes vs. IMDB Score of Top 3 Countries Scatter Plot</h2>
+        <img src="scatterplot.png" style="height: 450px; width: 95%" />
+        <p>
+          This scatter plot compares the IMDB votes and IMDB scores for the top
+          3 countries - India, South Korea, and the United States of America.
+          The plot shows a clear positive correlation between IMDB votes and
+          IMDB scores, indicating that movies with more votes tend to have
+          higher ratings. However, the relationship is not perfectly linear, as
+          there is considerable scatter in the data points. From the plot, it
+          appears that the movies from the United States have the highest
+          concentration of data points and cover the widest range of IMDB votes
+          and scores compared to the other two countries. South Korea and India
+          have fewer data points, but their movies still span a wide range of
+          IMDB votes and scores.
+        </p>
+        <p>
+          The main cluster of data points is centered on the left range of IMDB
+          votes (0 to 800,000) and the middle range of IMDB scores (between 2.0
+          and 9.5). There are several outliers with extremely high IMDB vote
+          counts (above 2,000,000) with high IMDB scores around 8.5-9.5. These
+          may be very commercially successful movies that also received high
+          critical acclaim.
+        </p>
+      </div>
+    </div>
+
     <h1 style="border-top: 2px solid #c83c44; color: #c83c44; width: 100%">
       Interactive Visualization
     </h1>
 
-    <h2 style="width: 100%">Line + Bar</h2>
+    <h2 style="width: 100%">
+      Content Genres and Release Year Line and Bar Charts
+    </h2>
     <div class="center" style="width: 1000px; height: 700px; overflow: scroll">
       <div id="altair_release"></div>
       <div
@@ -326,7 +340,7 @@
       comparatively lower popularity levels.
     </p>
 
-    <h2 style="width: 100%">Countries Partnerships Network</h2>
+    <h2 style="width: 100%">Countries Partnership Network</h2>
     <iframe
       src="country_network.html"
       frameborder="0"
@@ -365,5 +379,8 @@
       network could offer deeper insights into the dynamics of international
       partnerships in filmmaking and television production.
     </p>
+
+    <h1>Conclusion</h1>
+    <p></p>
   </body>
 </html>
